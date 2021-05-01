@@ -1,3 +1,5 @@
+//## =============== Apollo & GraphQL Set Up =============== ##//
+
 import { useQuery, gql } from '@apollo/client';
 
 import CollectionsOverview from './collections-overview.component';

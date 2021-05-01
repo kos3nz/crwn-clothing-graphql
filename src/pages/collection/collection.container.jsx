@@ -1,7 +1,9 @@
+//## =============== Apollo & GraphQL Set Up =============== ##//
+
 import { gql, useQuery } from '@apollo/client';
 
 import CollectionPage from './collection.component';
-import Spinner from '../../components/spinner/spinner.component.jsx';
+import Spinner from '../../components/spinner/spinner.component';
 
 const GET_COLLECTION_BY_TITLE = gql`
   query getCollectionsByTitle($title: String!) {
@@ -22,14 +24,14 @@ const CollectionPageContainer = ({ match }) => {
   const { loading, error, data } = useQuery(GET_COLLECTION_BY_TITLE, {
     variables: { title: match.params.collectionId },
   });
-  console.log({ loading });
-  console.log({ error });
-  console.log({ data });
+  // console.log({ loading });
+  // console.log({ error });
+  // console.log({ data });
 
   if (loading) return <Spinner />;
 
   const { getCollectionsByTitle } = data;
-  console.log({ getCollectionsByTitle });
+  // console.log({ getCollectionsByTitle });
 
   if (error) console.log(error.message);
   return <CollectionPage collection={getCollectionsByTitle} />;
